@@ -59,6 +59,13 @@
         <maven.compiler.release>16</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    
+<repositories>
+        <repository>
+        <id>nms-repo</id>
+        <url>https://repo.codemc.io/repository/nms/</url>
+    </repository>
+</repositories>
 
     <build>
         <defaultGoal>clean install</defaultGoal>
