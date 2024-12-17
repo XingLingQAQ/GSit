@@ -49,6 +49,9 @@ tasks {
     shadowJar {
         archiveClassifier.set("")
         minimize()
+        manifest {
+            attributes["paperweight-mappings-namespace"] = "spigot"
+        }
     }
 
     build {
@@ -68,19 +71,15 @@ tasks {
             "main" to "${project.group}.${project.name}Main"
         )
     }
+}
 
-    publishToMavenLocal {
-        dependsOn(build)
-    }
-
-    publishing {
-        publications {
-            create<MavenPublication>("maven") {
-                groupId = project.group.toString()
-                artifactId = project.name
-                version = project.version.toString()
-                from(project.components["java"])
-            }
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = project.group.toString()
+            artifactId = project.name
+            version = project.version.toString()
+            from(project.components["java"])
         }
     }
 }

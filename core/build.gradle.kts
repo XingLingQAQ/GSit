@@ -19,10 +19,6 @@ tasks {
         options.release.set(16)
     }
 
-    publishToMavenLocal {
-        dependsOn(build)
-    }
-
     publishing {
         publications {
             create<MavenPublication>("maven") {
